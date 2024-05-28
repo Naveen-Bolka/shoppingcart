@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clip Borad Events</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script>
+             function bodyload(){
+                document.getElementById("userError").style.display="none";
+                document.getElementById("pwdError").style.display="none";
+                document.onselect=function(){
+                    return false;
+                };
+             }
+             function SubmitForm(){
+                alert("form is submitted");
+             }
+             function CancelForm(){
+                alert("from is canceled")
+             }
+             function VerifyUser(){
+                var user=document.getElementById("username").value;
+                var error=document.getElementById("userError");
+    
+                if(user=="Naveen"){
+                    error.style.display="block";
+                }
+                else{
+                    error.style.display="none";
+                }
+             }
+
+             function VerifyPwd(){
+                var pwd=document.getElementById("pwd").value;
+                var error=document.getElementById("pwdError");
+    
+                if(pwd==12345){
+                    error.style.display="none";
+                }
+                else{
+                    error.style.display="block";
+                }
+             }
+        </script>
+    </head>
+    <body class="container-fluid" onload="bodyload()">
+        <div>
+                   <img src="../assets/Stranger Things.jpeg" height="200px" width="200px">
+        </div> 
+        <from name="registerFrom" onsubmit="SubmitForm()" onreset="CancelForm()" action="../javascript/hotel.html">
+            <dl class="row-cols-4">
+                <dt>USERNAME</dd>
+                <dd><input type="text" id="username" name="UserName" class="form-control" onkeyup="VerifyUser()"></dd>
+                <dd id="userError" class="text-danger"><span class="bi bi-exclamation-triangle-fill"> Username already taken</span> </dd>
+
+                <dt>PASSWORD</dd>
+                <dd><input type="password" id="pwd" name="PassWord" class="form-control" onkeyup="VerifyPwd()"></dd>
+                <dd id="pwdError" class="text-danger"><span class="bi bi-exclamation-triangle-fill"> incoorect password</span> </dd>
+            </dl>
+            <button type="submit"  class="mt-2 me-4">Submit</button>
+            <button type="reset"  class="mt-2 ms-4">Cancel</button>
+        </from>    
+        
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    </body>
+</html>

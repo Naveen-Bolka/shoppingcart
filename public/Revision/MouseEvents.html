@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Mouse Events</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script>
+            function ChangePoisition(e){
+                var image=document.getElementById("pic");
+                image.style.position="fixed";
+                image.style.left=e.clientX+"px" ;
+                image.style.top=e.clientY +"px" ;
+             //   console.log(e.clientX + "  " + e.clientY);
+            }
+            function ChangeColor(c){
+                var text=document.getElementById("sample").style.color=c;
+            }
+            function VerfiryUser(obj){
+                var user=document.getElementById("userName").value;
+                var m=document.getElementById("msg");
+
+                if(user=="Naveen"){
+                   m.innerHTML="<span class=text-success>Login Successfull <span>";
+                   document.getElementById("userName").disabled=true;
+                }
+                else
+                   m.innerHTML="<span class='bi bi-exclamation-triangle-fill text-danger'> Login Failed <span>";
+            }
+            function VerifyPwd(e){
+                  var msg2=document.getElementById("msg2");
+                  if(e.charCode>=0 && e.charCode<=96)
+                      msg2.innerHTML="<span class=text-success>Login Successfull <span>";
+                  else
+                      msg2.innerHTML="<span class='text-danger  bi bi-exclamation-triangle '>  Login Failed caps must be on <span>";
+                  
+            }
+
+        </script>
+    </head>
+    <body class="container-fluid">
+        
+            <img src="../assets/amazonlogo.jpg" height="50px" width="70px" id="pic" onmousemove="ChangePoisition(event)">
+            <h2 class="text-center">Choose the color </h2>
+            <div style="margin-left: 100px;" class=" row w-75 container align-items-center mt-4">
+                <div onmouseup="ChangeColor(this.id)" class="col text-white text-center" id="red" style="background-color: red;" >Red</div>
+                <div onmousedown="ChangeColor(this.id)" class="col text-white text-center" id="green" style="background-color: green;">Green</div>
+                <div onmouseover="ChangeColor(this.id)" class="col text-white text-center" id="blue" style="background-color: blue;">Blue</div>
+            </div>
+            <div class="mt-4 text-center">
+                   <h3 id="sample">Sample Text</h3>
+            </div>
+
+            <div class="mt-4 w-25">
+                <label class="form-label">UserName</label>
+                <input type="text" class="form-control" onkeyup="VerfiryUser(event)" id="userName">
+                <div class="mt-2">
+                    <p id="msg"></p>
+                </div>
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" onkeypress="VerifyPwd(event)" id="passWord">
+                <div class="mt-2">
+                    <p id="msg2"></p>
+                </div>
+            </div>
+            
+            
+       
+    </body>
+</html>

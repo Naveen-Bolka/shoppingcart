@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BOOK MY SHOW</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../Revision/EventStyle.css">
+        <script>
+
+        </script>
+    </head>
+    <body class="container-fluid">
+         <div>
+            <header>
+                <div class="row mt-2">
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <img src="../../public/assets/BookMyShow offers showtimes, movie tickets, reviews, trailers, concert tickets a___.jpg" width="200px" height="60px">
+                    </div>
+
+
+                    <div class="col-5">
+                        <span id="symbol" class="bi bi-search"></span><input type="text" id="serach" class="form-control" placeholder="          Serach for Movies,Events and Activities">
+                    </div>
+
+
+                    <div class="col-2">
+                        <select class="form-select">
+                            <option>Hyderabad</option>
+                            <option>Mumbai</option>
+                            <option>Banglore</option>
+                            <option>Chennai</option>
+                        </select>
+                    </div>
+
+
+                    <div class="col-1">
+                        <button class="btn btn-danger" style="font-size: 12px; width: 80px;" data-bs-toggle="modal" data-bs-target="#sign">sign in</button>
+                    </div>
+                    <div class="modal" id="sign">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div id="box">
+                                    <div id="inner-box" class="text-center">
+                                        <span class="bi bi-google"> Continue with Google</span>
+                                    </div>
+                                    <div id="inner-box" class="text-center">
+                                        <span class="bi bi-mailbox2"> Continue with Email</span>
+                                    </div>
+                                    <div id="inner-box" class="text-center">
+                                         <span class="bi bi-apple"> Continue with Apple</span>
+                                    </div>
+
+                                    <div class="text-center mt-4" >
+                                                 OR
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        +91 <input type="text" id="phnNumber"  pattern="{0-9}[10]" style="border-style:none;" placeholder="Continue with number">
+                                    </div>
+                                    <div class="text-center" style="margin-top: 150px; font-size: 12px; ">
+                                        I agree with <span ><a href="../javascript/emicalculator.html">Terms&Conditions</a> & <a href="../javascript/nasa.html">PrivacyPolicy</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                        <div class="col-1" target="#menu" onmouseover="DisplayMenu()">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                       
+                         <div id="menu">
+                             <div id="item" style="font-size: 24px; font-weight: bold; margin-left: 1%; margin-top: 2%;">Hey!</div>
+                             <div id="item"><span style="font-size: 14px;color:rgb(90, 135, 160);" class="bi bi-gift-fill rounded-4">Unlock special offers & <button class="btn btn-outline-danger w-50">Login / Register</button>great benefits </span></div>
+                             <div id="item" class="bi bi-bell"> Notifications</div>
+                             <div id="item" class="bi bi-bag-fill" > Your Orders <div style="font-size: 10px;color: rgb(61, 61, 61); margin-left: 20px;"> View all your bookings & purchase</div></div>
+                             <div id="item" class="bi bi-tv-fill"> Stream Library <div style="font-size: 10px;color: rgb(61, 61, 61); margin-left: 20px;"> Rented & Purchased movies</div> </div>
+                             <div id="item" class="bi bi-currency-rupee">Play Credit Card <div style="font-size: 10px;color: rgb(61, 61, 61); margin-left: 20px;"> View your play & credit crad details</div></div>
+                             <div id="item" class="bi bi-chat-fill"> Help & Settings <div style="font-size: 10px;color: rgb(61, 61, 61); margin-left: 20px;"> View commonly asked questions and chat</div></div>
+                             <div id="item" class="bi-nut"> Account & Settings <div style="font-size: 10px;color: rgb(61, 61, 61); margin-left: 20px;"> Location,Payments,Permissions & More</div></div>
+                             <div id="item" class="bi bi-gift-fill"> Rewards <div style="font-size: 10px;color: rgb(61, 61, 61); margin-left: 20px;"> View your rcords & unlock new records</div></div>
+                             <div id="item" class="bi bi-book-fill"> BookaSmile</div>
+                          </div>
+                        </div>
+
+                </div>
+                <div class="mt-1" Style=" background-color: rgba(213, 208, 208, 0.833);">
+                    <ol class="row" style="list-style: none;font-size:15px; height:50px; width:1300px; margin-left:150px;">
+                        <li class="col-1 mt-3">Movies</li>  
+                        <li class="col-1  mt-3">Stream</li>
+                        <li class="col-1  mt-3">Events</li>
+                        <li class="col-1  mt-3">Plays</li>
+                        <li class="col-1  mt-3">Sports</li>
+                        <li class="col-3  mt-3">Activities</li>
+                        <li class="col-1  mt-3">ListYourShow</li>
+                        <li class="col-1  mt-3">Corporates</li>
+                        <li class="col-1  mt-3">Offers</li>
+                        <li class="col-1  mt-3">Gift Cards</li>                        
+                    </ol>
+                </div>
+            </header>
+            <section class="mt-1">
+                        <div class="carousel slide carousel-dark" id="banner" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                     <img src="../assets/download.jpg" class="w-100 d-block" height="400px">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../assets/The Batman 2022.jpg" class="w-100 d-block" height="400px">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../assets/New Movie Posters for Dunkirk.jpg" class="w-100 d-block" height="400px">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../assets/Three Billboards Outside Ebbing, Missouri (2017).jpg" class="w-100 d-block" height="400px">
+                                </div>
+                            </div>
+                            <div>
+                                <button class="carousel-control-prev" data-bs-target="#banner" data-bs-slide="prev"><span style="border: 1px solid black; height: 50px; background-color: black;" class="carousel-control-prev-icon"></span></button>
+                            </div>
+                            <div>
+                                <button class="carousel-control-next" data-bs-target="#banner" data-bs-slide="next"><span style="border: 1px solid black; height: 50px; background-color: black;" class="carousel-control-next-icon "></span></button>
+                            </div>
+                            <div class="carousel-indicators">
+                                 <button id="slide1" class="active" style="color:white;" data-bs-target="#banner" data-bs-slide-to="0"></button>
+                                 <button id="slide1" data-bs-target="#banner" data-bs-slide-to="1"></button>
+                                 <button id="slide1" data-bs-target="#banner" data-bs-slide-to="2"></button>
+                                 <button id="slide1" data-bs-target="#banner" data-bs-slide-to="3"></button>
+                            </div>   
+                        </div>
+                        <div class="mt-4">
+                                <b style="font-size: 24px; margin-left: 65px;">Recommended Movies</b>
+                        </div>
+                        <div class="mt-2 ms-2 d-flex flex-md-row justify-content-evenly">
+                                <div id="card">
+                                    <img src="../assets/15 Most Outstanding Classic Movie Poster Remakes by Flore Maquin _ Reckon Talk.jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                        <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Fight Club</b>
+                                        <p id="gener">Action/Thiller</p>
+                                    </div>
+                                </div>
+                                <div id="card">
+                                    <img src="../assets/21 Alternative Movie Posters That Outshine The Originals.jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                       <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Fight Club</b>
+                                        <p id="gener">Action/Thiller</p>
+                                    </div>
+                               </div>
+                               <div id="card">
+                                    <img src="../assets/Avatar.jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                      <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Avatar</b>
+                                        <p id="gener">Action/Adventerous/Fantasy</p>
+                                    </div>
+                                 </div>
+                                <div id="card">
+                                    <img src="../assets/Carteles _Interstellar_.jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                        <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Interstellar</b>
+                                        <p id="gener">Sci-fi/Thiller</p>
+                                    </div>
+                                </div>
+                                <div id="card" style="display:none;">
+                                    <img src="../assets/The 20 Best Disney Movies of All Time (1).jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                        <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Interstellar</b>
+                                        <p id="gener">Sci-fi/Thiller</p>
+                                    </div>
+                                </div>
+                                <div id="card" style="display:none;">
+                                    <img src="../assets/LCU Poster.jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                        <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Interstellar</b>
+                                        <p id="gener">Sci-fi/Thiller</p>
+                                    </div>
+                                </div>
+                                <div id="card" style="display:none;">
+                                    <img src="../assets/The Batman 2022.jpg" height="400px" width="299px">
+                                    <div class="bg-black text-white text-center">
+                                        <span class="bi bi-star-fill">&nbsp;&nbsp;&nbsp; 9.2/10 &nbsp;29.3K Votes  </span>
+                                    </div>
+                                    <div>
+                                        <b id="title">Interstellar</b>
+                                        <p id="gener">Sci-fi/Thiller</p>
+                                    </div>
+                                </div>
+                                <button onclick="showCards1()" id="chevron-container1"><span class="bi-chevron-right"></span></button>
+                                <button onclick="showCards1()" id="chevron-container3" style="display:none;"><span class="bi-chevron-left" ></span></button>
+                        </div>
+                        <div class="text-center" id="banner">
+                             <img src="../assets/Screenshot 2024-02-26 210954.png" width="1380px">
+                        </div>
+                        <div class="mt-4">
+                            <b style="font-size: 24px; margin-left: 65px;">The best of live events</b>
+                        </div>
+                        <div class="mt-2 d-flex flex-row justify-content-evenly">
+                              <div id="short-cards">
+
+                              </div>
+                              <div id="short-cards">
+
+                              </div>
+                              <div id="short-cards">
+
+                              </div>
+                              <div id="short-cards">
+
+                              </div>
+                              <div id="short-cards" style="display: none;">
+
+                              </div>
+                              <div id="short-cards" style="display: none;">
+
+                              </div>
+                              <div id="short-cards" style="display: none;">
+
+                              </div>
+                              <button onclick="showCards2()" id="chevron-container2"><span class="bi-chevron-right"></span></button>
+                              <button onclick="showCards2()" id="chevron-container4"><span class="bi-chevron-left"></span></button>
+                        </div>
+            </section>
+         </div>
+         <script src="../../node_modules/jquery/dist/jquery.js"></script>
+         <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+         <script src="../Revision/Events.js"></script>
+    </body>
+</html>

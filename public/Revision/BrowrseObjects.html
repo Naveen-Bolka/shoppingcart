@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Browser Objects</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script>
+            function bodyload() {
+                 
+                 for(var plug of navigator.mimeTypes){
+              //      console.log(plug.type + "\n");
+                    var li=document.createElement("li");
+                    li.innerHTML=plug.type;
+                    document.querySelector("ol").appendChild(li);
+                 }
+              }
+              function Message(){
+                var user=document.getElementById("UserName").value
+                if(user=="Naveen"){
+                    
+                     var passWord=document.getElementById("PassWord").value;
+                    if(passWord==12345){
+                        alert("login Succesfull");
+                       login.action="../javascript/sample.html";
+                    }
+                }
+            }
+            function Message2(){
+                document.write(`
+                host : ${location.host} <br>
+                protocol : ${location.protocol=='http'? 'Your are using web server':'you are not using web server'} <br>
+                cookies : ^${navigator.cookieEnabled=='true'? 'cookies are enabled': 'please enable cookies'}`);
+            }
+
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <ol>
+
+        </ol>
+
+        <div class="mt-4 w-25">
+               <form onsubmit="Message()" onreset="Message2()" name="login">
+                <label id="form-label">User Name</label>
+                <input tyep="text" name="username" id="UserName" class="form-control">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" id="PassWord" class="form-control">
+
+                <div class="mt-4 w-50">
+                    <button  type="submit" class="btn btn-primary">Submit</button>
+                    <button   type="reset"  class="btn btn-danger">cancel</button>
+                </div>
+               </form> 
+        </div>
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+    </body>
+</html>

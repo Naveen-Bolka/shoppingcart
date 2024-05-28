@@ -1,0 +1,14 @@
+#username+div{
+    display:none;
+}
+#password+div{
+    display:none;
+}
+#username:focus+div{
+    display:block;
+    color:red;
+}
+#password:focus+div{
+    display:block;
+    color:red;
+}

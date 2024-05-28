@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movies</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../../public/Revision/MoviesCss.css">
+    </head>
+    <body>
+       
+       <section>
+        <div class="row">
+            <div class="col-3">
+                 <b>Filters</b>
+                 <div id="dropdown">
+                    <div class="accordion" id="flags">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <button data-bs-target="#q1" class="accordion-button bg-white" data-bs-toggle="collapse">Language</button>
+                            </div>
+                            <div class="accordion-collapse" id="q1" data-bs-target="#flags">
+                                <div class="accordion-body">
+                                    <ol class="d-flex flex-wrap" id="lan">
+                                      <li style="border: 1% solid red;">Telugu</li>
+                                      <li>Hindi</li>
+                                      <li>English</li>
+                                      <li>German</li>
+                                      <li>Japanese</li>
+                                      <li>Malayalam</li>
+                                      <li>Tamil</li>
+                                    </ol>
+                             
+                          </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="col-7">
+                  <b>Movies In Hyderabad</b>
+            </div>
+        </div>
+       </section>
+       <script src="../../node_modules/jquery/dist/jquery.js"></script>
+       <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>

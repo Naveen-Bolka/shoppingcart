@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+
+        </style>
+        <script>
+            function bodyLoad(){
+                loadCategories();
+                loadProducts("https://fakestoreapi.com/products");
+                getCartCount();
+            }
+
+            function loadCategories(){
+                fetch("https://fakestoreapi.com/products/categories")
+                .then(function(res){
+                    return res.json();
+                }).then(function(category){
+                    category.unshift("all");
+                    category.map(function(list){
+                        var option =document.createElement("option");
+                        option.text=list.toUpperCase();
+
+                        option.value=list;
+                        document.getElementById("lstCategories").appendChild(option);
+                    })
+                })
+            }
+
+            function loadProducts(url){
+                document.querySelector("main").innerHTML=" ";
+                
+                fetch(url).then(res=>res.json())
+                .then((products)=>{
+                    products.map((product)=>{
+                        var div=document.createElement("div");
+                        div.style.width="200px";
+                        div.innerHTML=`
+                       <div class="card m-1">
+                        <img src=${product.image} height="140px" class="card-img-top">
+                        <div class="card-header" style="height:140px">
+                            <div>${product.title}</div>
+                            </div>
+                            <div class="card-body ">
+                                <dl>
+                                  <dt>Price</dt>
+                                  <dd>${product.price}</dd>
+                                  <dt>Rating </dt>
+                                  <dd>${product.rating.rate}<span class="bi bi-star-fill text-success"></span>[${product.rating.count}]</dd>  
+                                </dl>
+                            </div>
+                            <div class="card-footer">
+                                <button onclick="AddClick(${product.id})" class="btn btn-danger w-100"><span class="bi bi-cart4"></span>Add to cart</button>
+                            </div>
+                        </div>`;
+
+                                document.querySelector("main").appendChild(div);
+                    })               
+                })
+            }
+
+            var cartItems=[];
+            function getCartCount(){
+                document.getElementById("lblCount").innerHTML=cartItems.length;
+            }
+
+            function AddClick(id){
+                fetch(`http://fakestoreapi.com/products/${id}`)
+                .then(function (res){
+                    return res.json();
+                }).then(function(product){
+                        cartItems.push(product);
+                        getCartCount();
+                        allProduts();
+                })
+            }
+
+
+
+            var totalPrice=0;
+
+
+            function showCart(){
+                document.querySelector("tbody").innerHTML=" ";
+                cartItems.map(function (item){
+                    var tr=document.createElement("tr");
+                    var tdTitle=document.createElement("td");
+                    var tdImage=document.createElement("td");
+                    var tdPrice=document.createElement("td");
+                    var pic=document.createElement("img");
+                    var tdRemove=document.createElement("td");
+    
+                    totalPrice=parseFloat(totalPrice+item.price,1);
+                    tdTitle.innerHTML=item.title;
+                    tdPrice.innerHTML=item.price;
+                    pic.src=item.image;
+                    pic.width=100;
+                    pic.height=100;
+                    
+                    
+                    tdImage.appendChild(pic);
+                    tr.appendChild(tdTitle);
+                    tr.appendChild(tdImage);
+                    tr.appendChild(tdPrice);             
+
+                    document.querySelector("tbody").appendChild(tr);
+                    document.getElementById("totalPrice").innerHTML=`<button class="btn btn-dark w-100">Total Amount &#8377;${totalPrice}</button>`;
+                })
+            }
+
+            function categoryChanged(){
+                var categoryName=document.getElementById("lstCategories").value;
+                if(categoryName=="all"){
+                    loadProducts("http://fakestoreapi.com/products");
+                }
+                else{
+                    loadProducts(`http://fakestoreapi.com/products/category/${categoryName}`);
+                }
+            }
+
+            function ClickChange(name){
+                if(name=="all"){
+                    loadProducts("http://fakestoreapi.com/products");
+                }
+                else{
+                    loadProducts(`http://fakestoreapi.com/products/category/${name}`);
+                }
+
+            }
+            
+        </script>
+    </head>
+    <body class="container-fluid" onload="bodyLoad()">
+        <div class="h1 text-center bg-warning text-white">Shopper</div>
+        <header class="p-2 d-flex justify-content-between bg-dark text-white">
+            <div>
+                <span class="me-3"><button class="btn text-white" value="all" onclick="ClickChange(value)">Home</button></span>
+                <span class="me-3"><button class="btn text-white" value="electronics" onclick="ClickChange(value)">Electronics</button></span>
+                <span class="me-3"><button class="btn text-white" value="jewelery" onclick="ClickChange(value)">Jewelery</button></span>
+                <span class="me-3"><button class="btn text-white" value="men's clothing" onclick="ClickChange(value)">Men's Fashion</button></span>
+                <span class="me-3"><button class="btn text-white" value="women's clothing" onclick="ClickChange(value)">Women's Fashion</button></span>
+            </div>
+            <div>
+                <span class="bi bi-search me-3"></span>
+                <span class="bi bi-heart me-3"></span>
+                <button onclick="showCart()" class="btn position-relative btn-light" data-bs-target="#cart" data-bs-toggle="modal">
+                <span class="bi bi-cart3"> Your cart<span class="badge position-absolute top-0 end-0 bg-danger rounded-circle " id="lblCount"></span>                    </span>
+               </button>
+            </div>
+            <div class="modal fade" id="cart">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="text-primary">Your Cart Summary</h2>
+                            <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-hover">   
+                                 <thead>
+                                    <tr>
+                                        <th class="me-3">Title</th>
+                                        <th class="me-3">Preview</th>
+                                        <th class="me-3">Price</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+
+                                 </tbody>
+                                 <tfoot>
+                                        <tr >
+                                            <td colspan="3" id="totalPrice"></td>
+                                        </tr>
+                                 </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="row mt-3">
+            <nav class="col-2">
+               <div>
+                <label class="form-label">Select Category</label>
+                <div>
+                    <select class="form-select" id="lstCategories" onchange="categoryChanged()"></select>
+                </div>
+               </div>
+            </nav>
+            <main class="col-10 d-flex flex-wrap overflow-auto" style="height: 500px;"></main>
+        </section>
+
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    </body>
+</html>
